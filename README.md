@@ -1,5 +1,6 @@
 # Final-Project
-##TRGN-510 Final Project - "Identifying key structure targets in a cohort of RNA-binding proteins"
+
+# TRGN-510 Final Project - "Identifying key structure targets in a cohort of RNA-binding proteins"
 
 _Section 1_ Description of final project:
 
