@@ -23,7 +23,7 @@ An example of exploring an RBP in the ENCODE database page:
 
 ![image](https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP%20RBP%20ENCODE%20ex.2.png)
 
-We will focus on nine RBPs including DGCR8, ILF3, TARDBP, HNRNPU, PCPB2, ZNF622, PTBP1, EWSR1, and LARP7. For each RBP, analysis will be based on fastq files, a text file that contains the sequence data from clusters that pass filter on a flow cell (<https://support.illumina.com/bulletins/2016/04/fastq-files-explained.html>, Illumina®). Fastq files for each RBP are studied in either HEPG2 (liver cancer cells) or K562 (leukemia cancer cells). I will select a total of four fastq sequences for each RBP, two being a pair for a control/mock input and another pair for the experiment condition. To obtain control sequences, navigate the ENCODE page under "Summary" lists "Controls:" which is a hyperlink to files for control fastq sequences.
+We will focus on nine RBPs including DGCR8, ILF3, TARDBP, HNRNPU, PCPB2, ZNF622, PTBP1, EWSR1, and LARP7. For each RBP, analysis will be based on fastq files, a text file that contains the sequence data from clusters that pass filter on a flow cell (<https://support.illumina.com/bulletins/2016/04/fastq-files-explained.html>, Illumina®). Fastq files for each RBP are studied in either HEPG2 (liver cancer cells) or K562 (leukemia cancer cells). I will select a total of four fastq sequences for each RBP, two being a pair for a control/mock input and another pair for the experiment condition. To obtain control sequences, navigate the ENCODE page under "__Summary__" lists "__Controls:__" which is a hyperlink to files for control fastq sequences.
 
 ![image](https://github.com/maiacorpuz/Final-Project/blob/master/mock_input_sequence.png)
 
@@ -31,7 +31,7 @@ From this new page, we should see options of mock input for the RBP of interest.
 
 ![image](https://github.com/maiacorpuz/Final-Project/blob/master/mock_input_sequence_2.png)
 
-We navigate toward the bottom of the page to see that there are a pair of fastq files hyperlinked in the association graph.
+We navigate toward the bottom of the page to see that there are a pair of fastq files hyperlinked in the __association graph__.
 
 ![image](https://github.com/maiacorpuz/Final-Project/blob/master/mock_input_sequence_3.png)
 
@@ -55,3 +55,4 @@ The following timeline will be based on three major milestones that require outl
 _Section 5_ User interface:
 
 A wire diagram that illustrates the pipeline process to include eCLIP dataset, pre-processing, post-processing by our lab, and summary data of sequences to outline structure targets for the subset of RBPs listed above.
+
