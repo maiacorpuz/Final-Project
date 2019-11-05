@@ -59,7 +59,7 @@ _Section 5_ User interface:
 A wire diagram that illustrates the pipeline process to include eCLIP dataset, pre-processing, post-processing by our lab, and summary data of sequences to outline structure targets for the subset of RBPs listed above (Lu et al. 2016, Van Nostrand et al. 2016).
 
 <p align="center">
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_process_pipeline.png" width="400" height="600">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_processing_pipeline.png" width="400" height="600">
 </p>
 
 ` Citations: `
