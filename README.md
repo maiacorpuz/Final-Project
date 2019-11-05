@@ -41,7 +41,7 @@ Download both fastq files to begin working on control sample. Similarly, within 
 
 _Section 3_ Proposed analysis for project:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identifying structure targets based on the characteristics describing RNA binding to RBPs include a processing of raw fastq sequences. The pre-processing of these sequences will include removal of adapter sequences and spliced reads. To do this step I will extract fastq sequences from eCLIP database and work in simple Linux environment. Following this, we can post-process the formatted sequences to generate a summary of gapped reads via Commandline and STAR 2.7.3a. STAR, a Commandline-run package, is a short read mapper that allows alignment to reference human genomes synthesized by researchers. STAR has built-in capacity to handle many customized parameters for alignment of these sequences to handle gapped and chimeric reads (Dobin et al. 2013). Also, examination of which RNA are top targets based on most "hits" via written custom scripts. Plot of gap length distribution (N) on intron and exon locations will begin as custom scripts in Linux and extracted to build RNA models in Integrated Genome Viewer (IGV). This serves to make qualitative and quantitative interpretations of the summaries gathered on gapped reads and locations.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identifying structure targets based on the characteristics describing RNA binding to RBPs include a processing of raw fastq sequences. The pre-processing of these sequences will include removal of adapter sequences and spliced reads. To do this step I will extract fastq sequences from eCLIP database and work in simple Linux environment. Following this, we can post-process the formatted sequences to generate a summary of gapped reads via Commandline and STAR 2.7.3a. STAR, a Commandline-run package, is a short read mapper that allows alignment to reference human genomes synthesized by researchers. STAR has built-in capacity to handle many customized parameters for alignment of these sequences with gapped and chimeric reads (Dobin et al. 2013). Also, examination of which RNA are top targets based on most "hits" via written custom scripts. Plot of gap length distribution (N) on intron and exon locations will begin as custom scripts in Linux and extracted to build RNA models in Integrated Genome Viewer (IGV). This serves to make qualitative and quantitative interpretations of the summaries gathered on gapped reads and locations.
 
 _Section 4_ Proposed Timeline & major milestones:
 
@@ -56,8 +56,16 @@ The following timeline will be based on three major milestones that require outl
 
 _Section 5_ User interface:
 
-A wire diagram that illustrates the pipeline process to include eCLIP dataset, pre-processing, post-processing by our lab, and summary data of sequences to outline structure targets for the subset of RBPs listed above.
+A wire diagram that illustrates the pipeline process to include eCLIP dataset, pre-processing, post-processing by our lab, and summary data of sequences to outline structure targets for the subset of RBPs listed above (Lu et al. 2016, Van Nostrand et al. 2016).
 
 <p align="center">
 <img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_process_pipeline.png" width="400" height="600">
 </p>
+
+` Citations: `
+
+1. Davis, C. A., Hitz, B. C., Sloan, C. A., Chan, E. T., Davidson, J. M., Gabdank, I., ... & Onate, K. C. (2017). The Encyclopedia of DNA elements (ENCODE): data portal update. Nucleic acids research, 46(D1), D794-D801.
+
+2. Van Nostrand, E. L., Pratt, G. A., Shishkin, A. A., Gelboin-Burkhart, C., Fang, M. Y., Sundararaman, B., ... & Stanton, R. (2016). Robust transcriptome-wide discovery of RNA-binding protein binding sites with enhanced CLIP (eCLIP). Nature methods, 13(6), 508.
+
+3. Lu, Z., Zhang, Q. C., Lee, B., Flynn, R. A., Smith, M. A., Robinson, J. T., ... & Mesirov, J. P. (2016). RNA duplex map in living cells reveals higher-order transcriptome structure. Cell, 165(5), 1267-1279.
