@@ -35,11 +35,11 @@ We navigate toward the bottom of the page to see that there are a pair of fastq 
 
 ![image](https://github.com/maiacorpuz/Final-Project/blob/master/mock_input_sequence_3.png)
 
-Download both fastq files to begin working on control sample. 
+Download both fastq files to begin working on control sample. Similarly, within this page you may find 2-3 replicates that each have two downloadable fastq files for experiment condition. 
 
 _Section 3_ Proposed analysis for project:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identifying structure targets based on the characteristics describing RNA binding to RBPs include a processing of raw fastq sequences. The pre-processing of these sequences will include removal of adapter sequences and spliced reads. Following this, we can post-process the formatted sequences to generate a summary of gapped reads, examine which RNA are top targets, plot gap length distribution (N) on intron and exon locations, and use such to build RNA models in Integrated Genome Viewer (IGV). 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identifying structure targets based on the characteristics describing RNA binding to RBPs include a processing of raw fastq sequences. The pre-processing of these sequences will include removal of adapter sequences and spliced reads. To do this step I will extract fastq sequences from eCLIP database and work in simple Linux environment. Following this, we can post-process the formatted sequences to generate a summary of gapped reads via Commandline and STAR 2.7.3a. STAR, a Commandline-run package, is a short read mapper that allows alignment to reference human genomes synthesized by researchers. STAR has built-in capacity to handle many customized parameters for alignment of these sequences to handle gapped and chimeric reads (Dobin et al. 2013). Also, examination of which RNA are top targets based on most "hits" via written custom scripts. Plot of gap length distribution (N) on intron and exon locations will begin as custom scripts in Linux and extracted to build RNA models in Integrated Genome Viewer (IGV). This serves to make qualitative and quantitative interpretations of the summaries gathered on gapped reads and locations.
 
 _Section 4_ Proposed Timeline & major milestones:
 
@@ -56,3 +56,4 @@ _Section 5_ User interface:
 
 A wire diagram that illustrates the pipeline process to include eCLIP dataset, pre-processing, post-processing by our lab, and summary data of sequences to outline structure targets for the subset of RBPs listed above.
 
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/TRGN_510_pipeline_finalproject.pdf)
