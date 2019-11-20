@@ -53,6 +53,14 @@ The following timeline will be based on three major milestones that require outl
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Milestone 2 (11/21/19) - Summarization of gapped reads. Following removal of adapter sequences and spliced reads, it will be important to map these sequences to the genome assemblies "hg38" and "RfamhumanrnamRNA" in STAR genome mapper. Our lab has written custom scripts to perform these tasks. Summarization of gapped reads will be performed in Unix language that can be displayed in a table format.
 
+Summary: I completed a first round of mapping alignments for LARP7 against RfamhumanrnaMrna and hg38 reference genomes. Below is a table of data summarized from aligning a mock input of LARP7 with hg38. 
+
+<p align="center">
+<imgsrc="https://github.com/maiacorpuz/Final-Project/blob/master/STAR_out_LARP7mock_hg38.png" width="300" height="500">
+</p>
+  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 2_ - Though mapping of aligned reads was executed, there is a lot of data to interpret which may be improved by adjusting STAR parameters to re-align. Ensuring quality of the performed mapping is essential. I will need to perform further processing of these mapped reads that are now in a file format known as 'sam'. This includes removing PCR duplicates and spliced reads via custom scripts. 
+  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Milestone 3 (11/27/19) - Examine top ranked RNA. Once the pre-processed RNA has been aligned in STAR according to custom parameters, we will need to use SAMTools to write a script to process GTF and SAM files. In doing so, we will transfer top ranked examples to display in IGV. I have never worked with STAR in Unix or IGV so I expect a lot of time spent understanding and applying knowledge into performing these steps.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Milestone 4 (after scope of course) - Continuation and more summarization of sequence data. The process of examining top ranked RNA based on scripts written in Unix may take more than one week so it may continue to be worked on in Milestone 3. The last major task will be to plot gap length distribution (N) on intron and exon locations. This is also Unix-based so writing custom scripts that will allow exporting tables and figures will be the mode of output.
