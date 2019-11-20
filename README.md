@@ -55,9 +55,7 @@ The following timeline will be based on three major milestones that require outl
 
 Summary: I completed a first round of mapping alignments for LARP7 against RfamhumanrnaMrna and hg38 reference genomes. Below is a table of data summarized from aligning a mock input of LARP7 with hg38. 
 
-<p align="center">
-<imgsrc="https://github.com/maiacorpuz/Final-Project/blob/master/STAR_out_LARP7mock_hg38.png">
-</p>
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/STAR_out_LARP7mock_hg38.png")
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 2_ - Though mapping of aligned reads was executed, there is a lot of data to interpret which may be improved by adjusting STAR parameters to re-align. Ensuring quality of the performed mapping is essential. I will need to perform further processing of these mapped reads that are now in a file format known as 'sam'. This includes removing PCR duplicates and spliced reads via custom scripts. 
   
