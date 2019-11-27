@@ -61,7 +61,13 @@ Summary: I completed a first round of mapping alignments for LARP7 against Rfamh
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 2_ - Though mapping of aligned reads was executed, there is a lot of data to interpret which may be improved by adjusting STAR parameters to re-align. Ensuring quality of the performed mapping is essential. I will need to perform further processing of these mapped reads that are now in a file format known as 'sam'. This includes removing PCR duplicates and spliced reads via custom scripts. 
   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Milestone 3 (11/27/19) - Examine top ranked RNA. Once the pre-processed RNA has been aligned in STAR according to custom parameters, we will need to use SAMTools to write a script to process GTF and SAM files. In doing so, we will transfer top ranked examples to display in IGV. I have never worked with STAR in Unix or IGV so I expect a lot of time spent understanding and applying knowledge into performing these steps.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* ~~Milestone 3 (11/27/19)~~ - Examine top ranked RNA. ~~Once the pre-processed RNA has been aligned in STAR according to custom parameters, we will need to use SAMTools to write a script to process GTF and SAM files. In doing so, we will transfer top ranked examples to display in IGV.~~ I have never worked with STAR in Unix or IGV so I expect a lot of time spent understanding and applying knowledge into performing these steps.
+
+__Summary__: I learned how to use slurm commands on USC's HPC (High Performance Computing) to conduct Cutadapt (removal of adapter sequences), STAR mapping to reference genomes, filter out spliced reads (python script), and use Samtools to sort and index the output sam files after STAR aligner. In addition, I produced bam files from converting the sam files (important as a file format readable in IGV) to view in Integrated Genome Viewer and begin analyzing the sequenced data. While troubleshooting the execution of splicefilter.py (python script to remove spliced reads written by Dr. Lu), I learned how to manage a virtual python environment in HPC server to allow completion. 
+
+<p align="center">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/IGV_bam_file_Rfam_chr22.png" width="500" height="760">
+</p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Milestone 4 (after scope of course) - Continuation and more summarization of sequence data. The process of examining top ranked RNA based on scripts written in Unix may take more than one week so it may continue to be worked on in Milestone 3. The last major task will be to plot gap length distribution (N) on intron and exon locations. This is also Unix-based so writing custom scripts that will allow exporting tables and figures will be the mode of output.
 
