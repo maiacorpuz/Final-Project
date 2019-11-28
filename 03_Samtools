@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --ntasks=8
+#SBATCH --time=10:00:00
+#SBATCH --mem-per-cpu=8G
+
+##################################################
+FILE=Sorted.LARP7.mock.hg38.bam
+WORKPATH=/home/rcf-proj3/zl2/mlcorpuz/eCLIP_PARIS/LARP7_HEPG2/
+##################################################
+
+cd $WORKPATH
+samtools view -bS -o 20191119.Aligned.out.PRI.mock.RfamhumanrnaMrna.bam 20191119.Aligned.out.PRI.mock.RfamhumanrnaMrna.sam
+samtools sort 20191119.Aligned.out.PRI.mock.RfamhumanrnaMrna.bam 20191119.Aligned.out.PRI.Sorted.mock.RfamhumanrnaMrna.bam
+samtools index 20191119.Aligned.out.PRI.Sorted.mock.RfamhumanrnaMrna.bam
