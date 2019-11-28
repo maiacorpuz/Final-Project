@@ -1,0 +1,43 @@
+#!/bin/bash
+#SBATCH --ntasks=1
+#SBATCH --time=24:00:00
+#SBATCH --mem-per-cpu=8G
+
+##################################################
+FILE=LARP7_trim_mapped_hg38
+WORKPATH=/home/rcf-proj3/zl2/mlcorpuz/eCLIP_PARIS/LARP7_HEPG2
+##################################################
+
+##Mapping
+cd ${WORKPATH}
+
+/home/rcf-proj3/zl2/mlcorpuz/Software/STAR/bin/Linux_x86_64/STAR \
+--runThreadN 8 \
+--runMode alignReads \
+--genomeDir /home/rcf-40/zhipengl/storage/zhipengl/staridx/starhg38pri \
+--readFilesIn LARP7_e1_1_out1.fastq LARP7_e2_1_out2.fastq \
+--readFilesPrefix - \
+--readMatesLengthsIn NotEqual \        #default: NotEqual ; NotEqual is safe in all situations.
+--limitOutSJcollapsed 10000000 \
+--outReadsUnmapped Fastx \
+--outFilterMultimapNmax 10 \
+--outFilterScoreMinOverLread 0 \
+--outFilterMismatchNmax 999 \        #default: 10 ; int: alignment will be output only if it has no more mismatches than this value.
+--outMultimapperOrder Random \
+--outSAMattributes All \
+--outSAMtype BAM Unsorted SortedByCoordinate \
+--alignIntronMin 1 \
+--alignMatesGapMax 0 \
+--scoreGap 0 \
+--scoreGapNoncan 0 \
+--scoreGapGCAG 0 \
+--scoreGapATAC 0 \
+--scoreGenomicLengthLog2scale -1 \
+--peOverlapNbasesMin 0 \        #default: 0 ; int>=0: minimum number of overlap bases to trigger mates merging and realignment
+--peOverlapMMp 0.01 \        #default: 0.01 ; real, >=0 & <1: maximum proportion of mismatched bases in the overlap area
+--chimOutType WithinBAM HardClip \
+--chimSegmentMin 5 \
+--chimJunctionOverhangMin 5 \
+--chimScoreJunctionNonGTAG 0 \
+--chimScoreDropMax 80 \
+--chimNonchimScoreDropMin 20 \
