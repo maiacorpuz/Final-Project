@@ -53,7 +53,7 @@ The following timeline will be based on three major milestones that require outl
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* ~~Milestone 2 (11/21/19)~~ - Summarization of gapped reads. Following removal of adapter sequences and spliced reads, it will be important to map these sequences to the genome assemblies "hg38" and "RfamhumanrnamRNA" in STAR genome mapper. Our lab has written custom scripts to perform these tasks. Summarization of gapped reads will be performed in Unix language that can be displayed in a table format.
 
-Summary: I completed a first round of mapping alignments for LARP7 against RfamhumanrnaMrna and hg38 reference genomes. Below is a table of data summarized from aligning a mock input of LARP7 with hg38. 
+__Summary__: I completed a first round of mapping alignments for LARP7 against RfamhumanrnaMrna and hg38 reference genomes. Below is a table of data summarized from aligning a mock input of LARP7 with hg38. 
 
 <p align="center">
 <img src="https://github.com/maiacorpuz/Final-Project/blob/master/2_STAR_out_LARP7mock_hg38.png" width="300" height="400">
@@ -65,22 +65,28 @@ Summary: I completed a first round of mapping alignments for LARP7 against Rfamh
 
 __Summary__: I learned how to use slurm commands on USC's HPC (High Performance Computing) to conduct Cutadapt (removal of adapter sequences), STAR mapping to reference genomes, filter out spliced reads (python script), and use Samtools to sort and index the output sam files after STAR aligner. In addition, I produced bam files from converting the sam files (important as a file format readable in IGV) to view in Integrated Genome Viewer and begin analyzing the sequenced data. While troubleshooting the execution of splicefilter.py (python script to remove spliced reads written by Dr. Lu), I learned how to manage a virtual python environment in HPC server to allow completion.
 
-I have uploaded slurm files to execute steps of the pipeline we are proposing such as Cutadapt and STAR mapping to reference genomes. They are written in bash scripts and can be run on USC's HPC server. Files with numbered prefix in this directory 'Final Project' include: [Cutadapt](https://github.com/maiacorpuz/Final-Project/blob/master/01_Cutadapt%20(removal%20of%20spliced%20reads)), [STAR aligner](https://github.com/maiacorpuz/Final-Project/blob/master/02_STAR%20aligner), and [Samtools](https://github.com/maiacorpuz/Final-Project/blob/master/03_Samtools). 
-
 <p align="center">
 <img src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_bam_file_Rfam_chr22.png" width="400" height="400">
 </p>
 
+Having produced bam files from the mapped data against reference genomes hg38 and RfamhumanrnaMrna (collection of Rfam and RNA transcripts put together by Dr. Lu), I am able to use Samtools to get quick statistics of the mapped data. Running, 
+` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam `
+I am able to identify the reference sequence name, sequence length, # of reads mapped, and # of reads unmapped from this Samtools option. I can then pipe the results into a tsv (comma-delimited) file by running
+` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam > idxstats_20191119_LARP7_mock_Aligned_hg38.tsv `
+These tsv files, one for each reference genome and condition (mock/experiment), can be further sorted in an Excel sheet by listing highest reads at the top of the csv file. All four tsv files are available in this directory that serve as tables to show the top-ranked RNA when mapped against RfamhumanrnaMrna and hg38. This 
+
+I have uploaded slurm files to execute steps of the pipeline we are proposing such as Cutadapt and STAR mapping to reference genomes. They are written in bash scripts and can be run on USC's HPC server. Files with numbered prefix in this directory 'Final Project' include: [Cutadapt](https://github.com/maiacorpuz/Final-Project/blob/master/01_Cutadapt%20(removal%20of%20spliced%20reads)), [STAR aligner](https://github.com/maiacorpuz/Final-Project/blob/master/02_STAR%20aligner), and [Samtools](https://github.com/maiacorpuz/Final-Project/blob/master/03_Samtools). 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 3_ - Using slurm commands have a learning curve since it is based on trial and error. If running a job on an interactive node, there is no log output of the job executed unless you specify a new log file be created. Therefore, if a job is taking an extensive amount of time to run and you would like a log of the final output and/or errors, it's better to use a remote node that can be run in the background without you actively logged on to HPC's server. In addition, it takes some time to understand how to prepare your sam file output from STAR aligner using Samtools and finally inputting into IGV.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Milestone 4 (after scope of course) - Continuation and more summarization of sequence data. The process of examining top ranked RNA based on scripts written in Unix may take more than one week so it may continue to be worked on in Milestone 3. The last major task will be to plot gap length distribution (N) on intron and exon locations. This is also Unix-based so writing custom scripts that will allow exporting tables and figures will be the mode of output.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Milestone 4 (__after scope of course__) - Continuation and more summarization of sequence data. ~~The process of examining top ranked RNA based on scripts written in Unix may take more than one week so it may continue to be worked on in Milestone 3~~. Though I proposed to completely process eCLIP data for the nine RBP listed in the project description: DGCR8, ILF3, TARDBP, HNRNPU, PCPB2, ZNF622, PTBP1, EWSR1, and LARP7, only LARP7 has been completely processed through the pipeline. Running through each step of this processing pipeline to a complete extent took much more time and priority rather than analyzing all RBP data in each processing step one at a time. The next and last major task will be to plot gap length distribution (N) on intron and exon locations. This is also Unix-based so writing custom scripts that will allow exporting tables and figures will be the mode of output.
 
 _Section 5_ User interface:
 
 A wire diagram that illustrates the pipeline process to include eCLIP dataset, pre-processing, post-processing by our lab, and summary data of sequences to outline structure targets for the subset of RBPs listed above (Lu et al. 2016, Van Nostrand et al. 2016).
 
 <p align="center">
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_processing_pipeline_v1.2.png" width="470" height="700">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_processing_pipeline_v1.3.png" width="470" height="700">
 </p>
 
 ` Citations: `
