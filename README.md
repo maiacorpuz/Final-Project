@@ -19,23 +19,23 @@ is an RNA dataset that the general public of researchers may peruse via ENCODE d
 
 An example of exploring an RBP in the ENCODE database page: 
 
-![image](https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP%20RBP%20ENCODE%20ex.png)
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/00_eCLIP_RBP_ENCODE_ex.png)
 
-![image](https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP%20RBP%20ENCODE%20ex.2.png)
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/00_eCLIP_RBP_ENCODE_ex.2.png)
 
 We will focus on nine RBPs including DGCR8, ILF3, TARDBP, HNRNPU, PCPB2, ZNF622, PTBP1, EWSR1, and LARP7. For each RBP, analysis will be based on fastq files, a text file that contains the sequence data from clusters that pass filter on a flow cell (<https://support.illumina.com/bulletins/2016/04/fastq-files-explained.html>, Illumina®). Fastq files for each RBP are studied in either HEPG2 (liver cancer cells) or K562 (leukemia cancer cells). I will select a total of four fastq sequences for each RBP, two being a pair for a control/mock input and another pair for the experiment condition. To obtain control sequences, navigate the ENCODE page under "__Summary__" lists "__Controls:__" which is a hyperlink to files for control fastq sequences.
 
 <p align=center>
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/mock_input_sequence.png" width="400" height="300">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/00_mock_input_sequence.png" width="400" height="300">
 </p>
 
 From this new page, we should see options of mock input for the RBP of interest. 
 
-![image](https://github.com/maiacorpuz/Final-Project/blob/master/mock_input_sequence_2.png)
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/00_mock_input_sequence_2.png)
 
 We navigate toward the bottom of the page to see that there are a pair of fastq files hyperlinked in the __association graph__.
 
-![image](https://github.com/maiacorpuz/Final-Project/blob/master/mock_input_sequence_3.png)
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/00_mock_input_sequence_3.png)
 
 Download both fastq files to begin working on control sample. Similarly, within this page you may find 2-3 replicates that each have two downloadable fastq files for experiment condition. 
 
@@ -56,7 +56,7 @@ The following timeline will be based on three major milestones that require outl
 Summary: I completed a first round of mapping alignments for LARP7 against RfamhumanrnaMrna and hg38 reference genomes. Below is a table of data summarized from aligning a mock input of LARP7 with hg38. 
 
 <p align="center">
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/STAR_out_LARP7mock_hg38.png" width="300" height="400">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/2_STAR_out_LARP7mock_hg38.png" width="300" height="400">
 </p>  
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 2_ - Though mapping of aligned reads was executed, there is a lot of data to interpret which may be improved by adjusting STAR parameters to re-align. Ensuring quality of the performed mapping is essential. I will need to perform further processing of these mapped reads that are now in a file format known as 'sam'. This includes removing PCR duplicates and spliced reads via custom scripts. 
@@ -65,10 +65,10 @@ Summary: I completed a first round of mapping alignments for LARP7 against Rfamh
 
 __Summary__: I learned how to use slurm commands on USC's HPC (High Performance Computing) to conduct Cutadapt (removal of adapter sequences), STAR mapping to reference genomes, filter out spliced reads (python script), and use Samtools to sort and index the output sam files after STAR aligner. In addition, I produced bam files from converting the sam files (important as a file format readable in IGV) to view in Integrated Genome Viewer and begin analyzing the sequenced data. While troubleshooting the execution of splicefilter.py (python script to remove spliced reads written by Dr. Lu), I learned how to manage a virtual python environment in HPC server to allow completion.
 
-I have uploaded slurm files to execute steps of the pipeline we are proposing such as Cutadapt and STAR mapping to reference genomes. They are written in bash scripts and can be run on USC's HPC server. Files with numbered prefix in this directory 'Final Project' include: [Cutadapt](https://github.com/maiacorpuz/Final-Project/blob/master/01_Cutadapt%20(removal%20of%20spliced%20reads), [STAR aligner](https://github.com/maiacorpuz/Final-Project/blob/master/02_STAR%20aligner), and [Samtools](https://github.com/maiacorpuz/Final-Project/blob/master/03_Samtools). 
+I have uploaded slurm files to execute steps of the pipeline we are proposing such as Cutadapt and STAR mapping to reference genomes. They are written in bash scripts and can be run on USC's HPC server. Files with numbered prefix in this directory 'Final Project' include: [Cutadapt](https://github.com/maiacorpuz/Final-Project/blob/master/01_Cutadapt%20(removal%20of%20spliced%20reads)), [STAR aligner](https://github.com/maiacorpuz/Final-Project/blob/master/02_STAR%20aligner), and [Samtools](https://github.com/maiacorpuz/Final-Project/blob/master/03_Samtools). 
 
 <p align="center">
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/IGV_bam_file_Rfam_chr22.png" width="400" height="400">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_bam_file_Rfam_chr22.png" width="400" height="400">
 </p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 3_ - Using slurm commands have a learning curve since it is based on trial and error. If running a job on an interactive node, there is no log output of the job executed unless you specify a new log file be created. Therefore, if a job is taking an extensive amount of time to run and you would like a log of the final output and/or errors, it's better to use a remote node that can be run in the background without you actively logged on to HPC's server. In addition, it takes some time to understand how to prepare your sam file output from STAR aligner using Samtools and finally inputting into IGV.
