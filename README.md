@@ -58,6 +58,9 @@ __Summary__: I completed a first round of mapping alignments for LARP7 against R
 <p align="center">
 <img src="https://github.com/maiacorpuz/Final-Project/blob/master/2_STAR_out_LARP7mock_hg38.png" width="300" height="400">
 </p>  
+This summary output from STAR alignment holds many characteristics of mapped data but we can focus on the number of uniquely mapped reads and calculate the total mapped reads based on unique + multi-mapped reads.
+
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/02_Mapping_stats_LARP7.csv)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 2_ - Though mapping of aligned reads was executed, there is a lot of data to interpret which may be improved by adjusting STAR parameters to re-align. Ensuring quality of the performed mapping is essential. I will need to perform further processing of these mapped reads that are now in a file format known as 'sam'. This includes removing PCR duplicates and spliced reads via custom scripts. 
   
@@ -73,7 +76,9 @@ Having produced bam files from the mapped data against reference genomes hg38 an
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam `
 I am able to identify the reference sequence name, sequence length, # of reads mapped, and # of reads unmapped from this Samtools option. I can then pipe the results into a tsv (comma-delimited) file by running
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam > idxstats_20191119_LARP7_mock_Aligned_hg38.tsv `
-These tsv files, one for each reference genome and condition (mock/experiment), can be further sorted in an Excel sheet by listing highest reads at the top of the csv file. All four tsv files are available in this directory that serve as tables to show the top-ranked RNA when mapped against RfamhumanrnaMrna and hg38. This 
+These tsv files, one for each reference genome and condition (mock/experiment), can be further sorted in an Excel sheet by listing highest reads at the top of the csv file. All four tsv files are available in this directory that serve as tables to show the top-ranked RNA when mapped against RfamhumanrnaMrna and hg38. 
+
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/4.2_LARP7_mock_RfamhumanrnaMrna.csv)
 
 I have uploaded slurm files to execute steps of the pipeline we are proposing such as Cutadapt and STAR mapping to reference genomes. They are written in bash scripts and can be run on USC's HPC server. Files with numbered prefix in this directory 'Final Project' include: [Cutadapt](https://github.com/maiacorpuz/Final-Project/blob/master/01_Cutadapt%20(removal%20of%20spliced%20reads)), [STAR aligner](https://github.com/maiacorpuz/Final-Project/blob/master/02_STAR%20aligner), and [Samtools](https://github.com/maiacorpuz/Final-Project/blob/master/03_Samtools). 
 
@@ -86,7 +91,7 @@ _Section 5_ User interface:
 A wire diagram that illustrates the pipeline process to include eCLIP dataset, pre-processing, post-processing by our lab, and summary data of sequences to outline structure targets for the subset of RBPs listed above (Lu et al. 2016, Van Nostrand et al. 2016).
 
 <p align="center">
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_processing_pipeline_v1.3.png" width="470" height="700">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_processing_pipeline_v1.3.png" width="470" height="600">
 </p>
 
 ` Citations: `
