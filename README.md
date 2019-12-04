@@ -60,14 +60,12 @@ __Summary__: I completed a first round of mapping alignments for LARP7 against R
 </p>  
 This summary output from STAR alignment holds many characteristics of mapped data but we can focus on the number of uniquely mapped reads and calculate the total mapped reads based on unique + multi-mapped reads.
 
-<center>
 Reference sequence  |  reference genome  |  uniquely mapped reads (%)  |  total mapped reads (%)
 ---------------------|--------------------|-----------------------------|------------------------
 LARP7_mock           |  hg38              |  26.67%                     |  85.28%
 LARP7_exp            |  hg38              |  26.67%                     |  85.28%
 LARP7_mock           |  RfamhumanrnaMrna  |  61.55%                     |  73.09%
 LARP7_exp            |  RfamhumanrnaMrna  |  61.55%                     |  73.09%
-</center>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 2_ - Though mapping of aligned reads was executed, there is a lot of data to interpret which may be improved by adjusting STAR parameters to re-align. Ensuring quality of the performed mapping is essential. I will need to perform further processing of these mapped reads that are now in a file format known as 'sam'. This includes removing PCR duplicates and spliced reads via custom scripts. 
   
@@ -85,7 +83,6 @@ I am able to identify the reference sequence name, sequence length, # of reads m
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam > idxstats_20191119_LARP7_mock_Aligned_hg38.tsv `
 These tsv files, one for each reference genome and condition (mock/experiment), can be further sorted in an Excel sheet by listing highest reads at the top of the csv file. All four tsv files are available in this directory that serve as tables to show the __top-ranked RNA__ when mapped against RfamhumanrnaMrna and hg38. 
 
-<center>
 Ref seq. name           |  sequence length  |  # of reads mapped  |  # of reads unmapped
 -------------------------|-------------------|---------------------|---------------------
 chr21                    |  46709983         |  72189              |  0
@@ -142,7 +139,6 @@ chr1_KI270707v1_random   |  32032            |  1                  |  0
 chr9_KI270720v1_random   |  39050            |  1                  |  0
 chrUn_KI270744v1         |  168472           |  1                  |  0
 chrUn_KI270751v1         |  150742           |  1                  |  0
-</center>
 
 I have uploaded slurm files to execute steps of the pipeline we are proposing such as Cutadapt and STAR mapping to reference genomes. They are written in bash scripts and can be run on USC's HPC server. Files with numbered prefix in this directory 'Final Project' include: [Cutadapt](https://github.com/maiacorpuz/Final-Project/blob/master/01_Cutadapt%20(removal%20of%20spliced%20reads)), [STAR aligner](https://github.com/maiacorpuz/Final-Project/blob/master/02_STAR%20aligner), and [Samtools](https://github.com/maiacorpuz/Final-Project/blob/master/03_Samtools). 
 
