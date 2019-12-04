@@ -71,16 +71,32 @@ LARP7_exp            |  RfamhumanrnaMrna  |  61.55%                     |  73.09
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* ~~Milestone 3 (11/27/19)~~ - Examine top ranked RNA. ~~Once the pre-processed RNA has been aligned in STAR according to custom parameters, we will need to use SAMTools to write a script to process GTF and SAM files. In doing so, we will transfer top ranked examples to display in IGV.~~ I have never worked with STAR in Unix or IGV so I expect a lot of time spent understanding and applying knowledge into performing these steps.
 
-__Summary__: I learned how to use slurm commands on USC's HPC (High Performance Computing) to conduct Cutadapt (removal of adapter sequences), STAR mapping to reference genomes, filter out spliced reads (python script), and use Samtools to sort and index the output sam files after STAR aligner. In addition, I produced bam files from converting the sam files (important as a file format readable in IGV) to view in Integrated Genome Viewer and begin analyzing the sequenced data. While troubleshooting the execution of splicefilter.py (python script to remove spliced reads written by Dr. Lu), I learned how to manage a virtual python environment in HPC server to allow completion.
+__Summary__: I learned how to use slurm commands on USC's HPC (High Performance Computing) to conduct Cutadapt (removal of adapter sequences), STAR mapping to reference genomes, filter out spliced reads (python script), and use Samtools to sort and index the output sam files after STAR aligner. While troubleshooting the execution of splicefilter.py (python script to remove spliced reads written by Dr. Lu), I learned how to manage a virtual python environment in HPC server to allow completion. In addition, I produced bam files from converting the sam files (important as a file format readable in IGV) to view in Integrated Genome Viewer and begin analyzing the sequenced data. 
 
 <p align="center">
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_bam_file_Rfam_chr22.png" width="400" height="400">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_bam_file_Rfam_chr22.png" width="420" height="400">
 </p>
 
-Having produced bam files from the mapped data against reference genomes hg38 and RfamhumanrnaMrna (collection of Rfam and RNA transcripts put together by Dr. Lu), I am able to use Samtools to get quick statistics of the mapped data. Running, 
+The mapped data displayed in IGV contains both a mapped alignment of LARP7 mock and experiment condition to reference genome RfamhumanrnaMrna on two separate occasions. The top center portion shows the exact sequence position number base pair (bp) in which our sequenced data is aligning to RfamhumanrnaMrna. The blue lines are indicating the aligned reads are mapping to multiple locations within the genome. The white bars attached to a given blue line indicate a 'mapping score == 0' which indicate multi-mapping occuring at this given position are less likely with a low score of 0. The grey thick arrow bars attached indicate a mapping score > 0 that suggest at this position many more reads are aligned here.
+
+<p align="center">
+<image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_position.png" width="420" height="400">
+</p>
+  
+'Mapping = Primary @ MapQ 255' indicates there is a mapping score = 255 which suggests the quality of this mapping is better since there are more sequenced reads aligning at these positions. Another important feature shown in IGV display is the accumlation of grey bar at differing heights at the top of each mapped alignment. The height of grey bars indicate how many counts of reads are mapped here. See an example below in which there are a total count of 4 reads with a base pair of A indicated. 
+
+<p align="center">
+<image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_count.png" width="300" height="380">
+</p>
+
+Having produced bam files from the mapped data against reference genomes hg38 and RfamhumanrnaMrna (collection of Rfam and RNA transcripts put together by Dr. Lu), I am able to use Samtools to get quick statistics of the mapped data. Running,
+
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam `
+
 I am able to identify the reference sequence name, sequence length, # of reads mapped, and # of reads unmapped from this Samtools option. I can then pipe the results into a tsv (comma-delimited) file by running
+
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam > idxstats_20191119_LARP7_mock_Aligned_hg38.tsv `
+
 These tsv files, one for each reference genome and condition (mock/experiment), can be further sorted in an Excel sheet by listing highest reads at the top of the csv file. All four tsv files are available in this directory that serve as tables to show the __top-ranked RNA__ when mapped against RfamhumanrnaMrna and hg38. 
 
 Ref seq. name           |  sequence length  |  # of reads mapped  |  # of reads unmapped
