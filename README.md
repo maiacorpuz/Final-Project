@@ -76,9 +76,9 @@ Having produced bam files from the mapped data against reference genomes hg38 an
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam `
 I am able to identify the reference sequence name, sequence length, # of reads mapped, and # of reads unmapped from this Samtools option. I can then pipe the results into a tsv (comma-delimited) file by running
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam > idxstats_20191119_LARP7_mock_Aligned_hg38.tsv `
-These tsv files, one for each reference genome and condition (mock/experiment), can be further sorted in an Excel sheet by listing highest reads at the top of the csv file. All four tsv files are available in this directory that serve as tables to show the top-ranked RNA when mapped against RfamhumanrnaMrna and hg38. 
+These tsv files, one for each reference genome and condition (mock/experiment), can be further sorted in an Excel sheet by listing highest reads at the top of the csv file. All four tsv files are available in this directory that serve as tables to show the __top-ranked RNA__ when mapped against RfamhumanrnaMrna and hg38. 
 
-![image](https://github.com/maiacorpuz/Final-Project/blob/master/4.2_LARP7_mock_RfamhumanrnaMrna.csv)
+![image](https://github.com/maiacorpuz/Final-Project/blob/master/4.1.1_LARP7_mock_hg38.md)
 
 I have uploaded slurm files to execute steps of the pipeline we are proposing such as Cutadapt and STAR mapping to reference genomes. They are written in bash scripts and can be run on USC's HPC server. Files with numbered prefix in this directory 'Final Project' include: [Cutadapt](https://github.com/maiacorpuz/Final-Project/blob/master/01_Cutadapt%20(removal%20of%20spliced%20reads)), [STAR aligner](https://github.com/maiacorpuz/Final-Project/blob/master/02_STAR%20aligner), and [Samtools](https://github.com/maiacorpuz/Final-Project/blob/master/03_Samtools). 
 
