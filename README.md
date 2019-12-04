@@ -60,7 +60,12 @@ __Summary__: I completed a first round of mapping alignments for LARP7 against R
 </p>  
 This summary output from STAR alignment holds many characteristics of mapped data but we can focus on the number of uniquely mapped reads and calculate the total mapped reads based on unique + multi-mapped reads.
 
-![image](https://github.com/maiacorpuz/Final-Project/blob/master/02_Mapping_stats_LARP7.csv)
+Reference sequence  |  reference genome  |  uniquely mapped reads (%)  |  total mapped reads (%)
+---------------------|--------------------|-----------------------------|------------------------
+LARP7_mock           |  hg38              |  26.67%                     |  85.28%
+LARP7_exp            |  hg38              |  26.67%                     |  85.28%
+LARP7_mock           |  RfamhumanrnaMrna  |  61.55%                     |  73.09%
+LARP7_exp            |  RfamhumanrnaMrna  |  61.55%                     |  73.09%
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Known issues for Milestone 2_ - Though mapping of aligned reads was executed, there is a lot of data to interpret which may be improved by adjusting STAR parameters to re-align. Ensuring quality of the performed mapping is essential. I will need to perform further processing of these mapped reads that are now in a file format known as 'sam'. This includes removing PCR duplicates and spliced reads via custom scripts. 
   
@@ -78,7 +83,62 @@ I am able to identify the reference sequence name, sequence length, # of reads m
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam > idxstats_20191119_LARP7_mock_Aligned_hg38.tsv `
 These tsv files, one for each reference genome and condition (mock/experiment), can be further sorted in an Excel sheet by listing highest reads at the top of the csv file. All four tsv files are available in this directory that serve as tables to show the __top-ranked RNA__ when mapped against RfamhumanrnaMrna and hg38. 
 
-![image](https://github.com/maiacorpuz/Final-Project/blob/master/4.1.1_LARP7_mock_hg38.md)
+Ref seq. name           |  sequence length  |  # of reads mapped  |  # of reads unmapped
+-------------------------|-------------------|---------------------|---------------------
+chr21                    |  46709983         |  72189              |  0
+chrUn_GL000220v1         |  161802           |  21835              |  0
+chr22_KI270733v1_random  |  179772           |  21732              |  0
+chr1                     |  248956422        |  2147               |  0
+chr16                    |  90338345         |  1429               |  0
+chr17                    |  83257441         |  955                |  0
+chr6                     |  170805979        |  770                |  0
+chr2                     |  242193529        |  762                |  0
+chr19                    |  58617616         |  641                |  0
+chr7                     |  159345973        |  566                |  0
+chr12                    |  133275309        |  551                |  0
+chr3                     |  198295559        |  516                |  0
+chr11                    |  135086622        |  507                |  0
+chr5                     |  181538259        |  454                |  0
+chr14                    |  107043718        |  452                |  0
+chr20                    |  64444167         |  427                |  0
+chr9                     |  138394717        |  421                |  0
+chr4                     |  190214555        |  398                |  0
+chr10                    |  133797422        |  366                |  0
+chr22                    |  50818468         |  353                |  0
+chr8                     |  145138636        |  323                |  0
+chr15                    |  101991189        |  315                |  0
+chrX                     |  156040895        |  266                |  0
+chr13                    |  114364328        |  214                |  0
+chr18                    |  80373285         |  143                |  0
+chrY                     |  57227415         |  82                 |  0
+chrM                     |  16569            |  73                 |  0
+chr1_KI270713v1_random   |  40745            |  37                 |  0
+chr1_KI270711v1_random   |  42210            |  12                 |  0
+chrUn_GL000195v1         |  182896           |  9                  |  0
+chr17_GL000205v2_random  |  185591           |  8                  |  0
+chr17_KI270729v1_random  |  280839           |  8                  |  0
+chr17_KI270730v1_random  |  112551           |  8                  |  0
+chrUn_KI270743v1         |  210658           |  8                  |  0
+chrUn_GL000216v2         |  176608           |  7                  |  0
+chr1_KI270706v1_random   |  175055           |  6                  |  0
+chr4_GL000008v2_random   |  209709           |  6                  |  0
+chr16_KI270728v1_random  |  1872759          |  5                  |  0
+chr22_KI270736v1_random  |  181920           |  5                  |  0
+chr14_GL000009v2_random  |  201709           |  4                  |  0
+chrUn_GL000218v1         |  161147           |  4                  |  0
+chr22_KI270734v1_random  |  165050           |  3                  |  0
+chrUn_GL000224v1         |  179693           |  3                  |  0
+chr14_GL000225v1_random  |  211173           |  2                  |  0
+chr1_KI270708v1_random   |  127682           |  2                  |  0
+chrUn_KI270442v1         |  392061           |  2                  |  0
+chrUn_KI270438v1         |  112505           |  2                  |  0
+chrUn_KI270745v1         |  41891            |  2                  |  0
+chrY_KI270740v1_random   |  37240            |  2                  |  0
+chr15_KI270727v1_random  |  448248           |  1                  |  0
+chr1_KI270707v1_random   |  32032            |  1                  |  0
+chr9_KI270720v1_random   |  39050            |  1                  |  0
+chrUn_KI270744v1         |  168472           |  1                  |  0
+chrUn_KI270751v1         |  150742           |  1                  |  0
 
 I have uploaded slurm files to execute steps of the pipeline we are proposing such as Cutadapt and STAR mapping to reference genomes. They are written in bash scripts and can be run on USC's HPC server. Files with numbered prefix in this directory 'Final Project' include: [Cutadapt](https://github.com/maiacorpuz/Final-Project/blob/master/01_Cutadapt%20(removal%20of%20spliced%20reads)), [STAR aligner](https://github.com/maiacorpuz/Final-Project/blob/master/02_STAR%20aligner), and [Samtools](https://github.com/maiacorpuz/Final-Project/blob/master/03_Samtools). 
 
