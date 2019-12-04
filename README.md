@@ -83,7 +83,7 @@ The mapped data displayed in IGV contains both a mapped alignment of LARP7 mock 
 <image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_position.png" width="620" height="600">
 </p>
   
-'Mapping = Primary @ MapQ 255' indicates there is a mapping score = 255 which suggests the quality of this mapping is better since there are more sequenced reads aligning at these positions. Another important feature shown in IGV display is the accumlation of grey bar at differing heights at the top of each mapped alignment. The height of grey bars indicate how many counts of reads are mapped here. See an example below in which there are a total count of 4 reads with a base pair of A indicated. 
+'Mapping = Primary @ MapQ 255' indicates there is a mapping score = 255 which suggests the quality of this mapping is better since there are more sequenced reads aligning at these positions. Another important feature shown in IGV display is the accumlation of grey bar at differing heights at the top of each mapped alignment. The height of grey bars indicate how many counts of reads are mapped here. See an example below in which there are a total count of 4 reads with a base pair C (cystosine) indicated. 
 
 <p align="center">
 <image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_count.png" width="300" height="340">
