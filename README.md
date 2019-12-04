@@ -89,7 +89,9 @@ The mapped data displayed in IGV contains both a mapped alignment of LARP7 mock 
 <image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_count.png" width="300" height="340">
 </p>
 
-Having produced bam files from the mapped data against reference genomes hg38 and RfamhumanrnaMrna (collection of Rfam and RNA transcripts put together by Dr. Lu), I am able to use Samtools to get quick statistics of the mapped data. Running,
+As the mapped data show varying traits of mapping score 0, 255, and higher possibly, the data prove to be aligned in a non-manipulated manner than what the content holds. There are both multi-mapp and unique mapped reads which is key in a given set of sequenced data. Viewing the data in IGV which looks unique, we can clearly perform this hybrid pipeline of eCLIP data using PARIS methods of processing RNA sequences coherently. 
+
+Subsequently, there are more data processing steps to take as briefly mentioned in Milestone 4. Having produced bam files from the mapped data against reference genomes hg38 and RfamhumanrnaMrna (collection of Rfam and RNA transcripts put together by Dr. Lu), I am able to use Samtools to get quick statistics of the mapped data. Running,
 
 ` samtools idxstats 20191119_LARP7_mock_Aligned_hg38_nosplice_Sortedindex.bam `
 
