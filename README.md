@@ -74,19 +74,19 @@ LARP7_exp            |  RfamhumanrnaMrna  |  61.55%                     |  73.09
 __Summary__: I learned how to use slurm commands on USC's HPC (High Performance Computing) to conduct Cutadapt (removal of adapter sequences), STAR mapping to reference genomes, filter out spliced reads (python script), and use Samtools to sort and index the output sam files after STAR aligner. While troubleshooting the execution of splicefilter.py (python script to remove spliced reads written by Dr. Lu), I learned how to manage a virtual python environment in HPC server to allow completion. In addition, I produced bam files from converting the sam files (important as a file format readable in IGV) to view in Integrated Genome Viewer and begin analyzing the sequenced data. 
 
 <p align="center">
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_bam_file_Rfam_chr22.png" width="420" height="400">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_bam_file_Rfam_chr22.png" width="620" height="600">
 </p>
 
 The mapped data displayed in IGV contains both a mapped alignment of LARP7 mock and experiment condition to reference genome RfamhumanrnaMrna on two separate occasions. The top center portion shows the exact sequence position number base pair (bp) in which our sequenced data is aligning to RfamhumanrnaMrna. The blue lines are indicating the aligned reads are mapping to multiple locations within the genome. The white bars attached to a given blue line indicate a 'mapping score == 0' which indicate multi-mapping occuring at this given position are less likely with a low score of 0. The grey thick arrow bars attached indicate a mapping score > 0 that suggest at this position many more reads are aligned here.
 
 <p align="center">
-<image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_position.png" width="420" height="400">
+<image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_position.png" width="620" height="600">
 </p>
   
 'Mapping = Primary @ MapQ 255' indicates there is a mapping score = 255 which suggests the quality of this mapping is better since there are more sequenced reads aligning at these positions. Another important feature shown in IGV display is the accumlation of grey bar at differing heights at the top of each mapped alignment. The height of grey bars indicate how many counts of reads are mapped here. See an example below in which there are a total count of 4 reads with a base pair of A indicated. 
 
 <p align="center">
-<image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_count.png" width="300" height="380">
+<image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_count.png" width="300" height="340">
 </p>
 
 Having produced bam files from the mapped data against reference genomes hg38 and RfamhumanrnaMrna (collection of Rfam and RNA transcripts put together by Dr. Lu), I am able to use Samtools to get quick statistics of the mapped data. Running,
