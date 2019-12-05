@@ -80,7 +80,7 @@ __Summary__: I learned how to use slurm commands on USC's HPC (High Performance 
 The mapped data displayed in IGV contains both a mapped alignment of LARP7 mock and experiment condition to reference genome RfamhumanrnaMrna on two separate occasions. The top center portion shows the exact sequence position number base pair (bp) in which our sequenced data is aligning to RfamhumanrnaMrna. The blue lines are indicating the aligned reads are mapping to multiple locations within the genome. The white bars attached to a given blue line indicate a 'mapping score == 0' which indicate multi-mapping occuring at this given position are less likely with a low score of 0. The grey thick arrow bars attached indicate a mapping score > 0 that suggest at this position many more reads are aligned here.
 
 <p align="center">
-<image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_position.png" width="620" height="600">
+<image src="https://github.com/maiacorpuz/Final-Project/blob/master/3_IGV_Rfam_chr22_position.png" width="820" height="800">
 </p>
   
 'Mapping = Primary @ MapQ 255' indicates there is a mapping score = 255 which suggests the quality of this mapping is better since there are more sequenced reads aligning at these positions. Another important feature shown in IGV display is the accumlation of grey bar at differing heights at the top of each mapped alignment. The height of grey bars indicate how many counts of reads are mapped here. See an example below in which there are a total count of 4 reads with a base pair C (cystosine) indicated. 
@@ -169,7 +169,7 @@ _Section 5_ User interface:
 A wire diagram that illustrates the pipeline process to include eCLIP dataset, pre-processing, post-processing by our lab, and summary data of sequences to outline structure targets for the subset of RBPs listed above (Lu et al. 2016, Van Nostrand et al. 2016).
 
 <p align="center">
-<img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_processing_pipeline_v1.3.png" width="470" height="600">
+<img src="https://github.com/maiacorpuz/Final-Project/blob/master/eCLIP_PARIS_RBP_processing_pipeline_v1.3.png" width="570" height="700">
 </p>
 
 ` Citations: `
